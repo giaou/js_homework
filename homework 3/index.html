@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Homework 3</title>
+  </header>
+  <body>
+    <script>
+      const nameLabel = "My name is: "; //3a
+      const name = "Leslie."; //3b
+      const introduce = nameLabel + name; //3c
+      console.log(introduce);
+
+      const coffee = 5;
+      const bagel = 3;
+      const total = coffee + bagel;
+      console.log("Total cost: $" + total); //3d
+      console.log(`Total cost: $${total}`); //3e
+      //alert(`Total cost: $${total}`); //3f
+
+      const premiumCoffee = 5.99;
+      const premiumBagel = 2.95;
+      const totalPremium = (premiumBagel * 100 + premiumCoffee * 100) / 100;
+      console.log("Total cost: $" + totalPremium); //3g
+      console.log(`Total cost: $${totalPremium}`); //3h
+      //alert(`Total cost: $${totalPremium}`); //3i
+
+      //alert(`Total cost: $${totalPremium}
+      //Thank you, come again!`); //3j
+
+      const basketball = 20.95;
+      const tshirt = 7.99;
+      const shipping = 4.99;
+
+      const itemNums = 2 + 2;
+      const itemsCost = (20.95 * 2 * 100 + 7.99 * 2 * 100) / 100;
+      const shippingCost = 4.99 * 2;
+      const totalBeforeTax = itemsCost + shippingCost;
+      const tax = Math.round(totalBeforeTax*100*0.1)/100;
+
+      console.log(`Items(${itemNums}):    ${itemsCost}`); //3k
+      console.log(`Shipping & handling: ${shippingCost}`); //3l
+      console.log(`Total before tax: ${totalBeforeTax}`); //3m
+      console.log(`Estimated tax (10%): ${tax}`); //3n
+    </script>
+  </body>
+</html>
