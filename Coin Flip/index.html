@@ -6,10 +6,16 @@
   <body>
     <script>
       const rand = Math.random();
+      let result = "";
 
       function tailsOrHeads() {
-        if (rand < 0.5) console.log(rand+" heads");
-        else console.log(rand+" tails");
+        if (rand < 0.5) {
+          result = "heads";
+          console.log(rand + " heads");
+        } else {
+          result = "tails";
+          console.log(rand + " tails");
+        }
       }
 
       tailsOrHeads();
