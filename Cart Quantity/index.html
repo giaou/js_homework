@@ -22,18 +22,18 @@
         if (cartQuantity + num <= 10) {
           cartQuantity += num;
           displayCart();
-        } else {
-          console.log("The cart is full!!");
+          return;
         }
+        console.log("The cart is full!!");
       }
 
       function removeFromCart(num) {
         if (cartQuantity - num >= 0) {
           cartQuantity -= num;
           displayCart();
-        } else {
-          console.log("Not enough items in the cart");
+          return;
         }
+        console.log("Not enough items in the cart");
       }
 
       function displayCart() {
