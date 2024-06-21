@@ -7,6 +7,7 @@
     <script>
       const rand = Math.random();
       let result = "";
+      const guess = "heads";
 
       function tailsOrHeads() {
         if (rand < 0.5) {
@@ -18,7 +19,18 @@
         }
       }
 
-      tailsOrHeads();
+      function play() {
+        tailsOrHeads();
+        guess === result
+          ? console.log(
+              `result is ${result} and your guess is ${guess}. You win!!`
+            )
+          : console.log(
+              `result is ${result} and your guess is ${guess}. You lost!!`
+            );
+      }
+
+      play();
     </script>
   </body>
 </html>
