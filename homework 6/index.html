@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<htm>
+  <header>
+    <title>Homework 6</title>
+  </header>
+  <body>
+    <script>
+      const currentHour = 12;
+      const currentAge = 26;
+      const name = "Leslie";
+      let isHoliday = true;
+
+      function Greeting(hour = currentHour) {
+        if (6 <= hour && hour <= 12) {
+          console.log(`Good morning! ${name}`);
+        } else if (13 <= hour && hour <= 17) {
+          console.log(`Good afternoon! ${name}`);
+        } else console.log(`Good night! ${name}`);
+      }
+
+      /*Greeting();
+      Greeting(14);
+      Greeting(20);
+      Greeting(3);
+      Greeting(9);
+      Greeting(16);*/
+
+      function checkForDiscountEligible(age = currentAge, holiday) {
+        isHoliday = holiday;
+        if (!isHoliday && (age <= 6 || age >= 65))
+          console.log(age + " Discount!");
+        else console.log(age + " No Discount!");
+      }
+
+      checkForDiscountEligible(10, false);
+      checkForDiscountEligible(26, false);
+      checkForDiscountEligible(100, false);
+      checkForDiscountEligible(5, false);
+      checkForDiscountEligible(6, true);
+      checkForDiscountEligible(65, true);
+      checkForDiscountEligible(64, true);
+      checkForDiscountEligible(1000, false);
+      checkForDiscountEligible(-1000, true);
+    </script>
+  </body>
+</htm>
