@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Cart Quantity</title>
+  </header>
+  <body>
+    <button onclick="displayCart()">Show Quantity</button>
+    <button onclick="addToCart(1)">Add to Cart</button>
+    <button onclick="addToCart(2)">+2</button>
+    <button onclick="addToCart(3)">+3</button>
+    <button onclick="resetCart()">Reset Cart</button>
+
+    <script>
+      let cartQuantity = 0;
+
+      function addToCart(num) {
+        cartQuantity += num;
+        displayCart();
+      }
+
+      function removeFromCart(num) {
+        cartQuantity -= num;
+        displayCart();
+      }
+
+      function displayCart() {
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+
+      function resetCart() {
+        cartQuantity = 0;
+        console.log("Cart was reset.");
+        displayCart();
+      }
+    </script>
+  </body>
+</html>
