@@ -32,7 +32,9 @@
     <button onclick="clearBtn()">Clear</button>
 
     <script>
-      let calculation = "";
+      let calculation = localStorage.getItem("calculation") || "";
+
+      console.log(calculation);
 
       function addButton(btn) {
         calculation += btn;
@@ -42,12 +44,14 @@
       function equalBtn() {
         const result = eval(calculation);
         calculation = result;
+        localStorage.setItem("calculation", calculation);
         console.log(result);
       }
 
       function clearBtn() {
         console.log("Clear");
         calculation = "";
+        localStorage.setItem("calculation", calculation);
       }
     </script>
   </body>
