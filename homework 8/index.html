@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Homework 8</title>
+  </header>
+  <body>
+    <script>
+      //8a
+      const basketball = {
+        name: "basketball",
+        price: 2095,
+      };
+
+      const coffeeBean = {
+        name: "Coffee Bean",
+        price: 3045,
+      };
+
+      const picture = {
+        name: "Monalisa",
+        price: 100454,
+      };
+
+      const robusta = {
+        name: "Coffee Bean",
+        price: 3045,
+      };
+
+      console.log(basketball);
+
+      //8b
+      basketball.price += 500;
+      console.log(basketball);
+
+      //8c
+      basketball["delivery-time"] = "3 days";
+      console.log(basketball);
+
+      //8d
+      function comparePrice(product1, product2) {
+        if (product1.price <= product2.price) return product1;
+        else return product2;
+      }
+
+      console.log(comparePrice(coffeeBean, picture));
+      console.log(comparePrice(coffeeBean, basketball));
+
+      //8e
+      function isSameProduct(product1, product2) {
+        if (
+          product1.name === product2.name &&
+          product1.price === product2.price
+        )
+          return true;
+        else return false;
+      }
+
+      console.log(isSameProduct(robusta, coffeeBean));
+      console.log(isSameProduct(picture, basketball));
+
+      //8f
+      console.log("Good Morning".toLowerCase());
+      //8g
+      console.log("test".repeat(2));
+    </script>
+  </body>
+</html>
