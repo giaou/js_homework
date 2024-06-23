@@ -1,0 +1,26 @@
+.number {
+  background-color: rgb(79, 76, 76);
+  color: white;
+  border: none;
+  border-radius: 60px;
+  font-size: 20px;
+  height: 60px;
+  width: 60px;
+}
+
+.clear {
+  font-size: 20px;
+}
+
+.operator {
+  background-color: rgb(240, 162, 18);
+}
+
+body {
+  background-color: black;
+}
+
+.display-operation {
+  color: white;
+  font-size: 40px;
+}

@@ -2,66 +2,37 @@
 <html>
   <header>
     <title>Calculator</title>
+    <link rel="stylesheet" href="index.css" />
   </header>
 
   <body>
-    <p class="js-display-operation"></p>
+    <p class="js-display-operation display-operation"></p>
     <p>
-      <button onclick="addButton('1')">1</button>
-      <button onclick="addButton('2')">2</button>
-      <button onclick="addButton('3')">3</button>
-      <button onclick="addButton(' + ')">+</button>
+      <button class="number" onclick="addButton('1')">1</button>
+      <button class="number" onclick="addButton('2')">2</button>
+      <button class="number" onclick="addButton('3')">3</button>
+      <button class="number operator" onclick="addButton(' + ')">+</button>
     </p>
     <p>
-      <button onclick="addButton('4')">4</button>
-      <button onclick="addButton('5')">5</button>
-      <button onclick="addButton('6')">6</button>
-      <button onclick="addButton(' - ')">-</button>
+      <button class="number" onclick="addButton('4')">4</button>
+      <button class="number" onclick="addButton('5')">5</button>
+      <button class="number" onclick="addButton('6')">6</button>
+      <button class="number operator" onclick="addButton(' - ')">-</button>
     </p>
     <p>
-      <button onclick="addButton('7')">7</button>
-      <button onclick="addButton('8')">8</button>
-      <button onclick="addButton('9')">9</button>
-      <button onclick="addButton(' * ')">*</button>
+      <button class="number" onclick="addButton('7')">7</button>
+      <button class="number" onclick="addButton('8')">8</button>
+      <button class="number" onclick="addButton('9')">9</button>
+      <button class="number operator" onclick="addButton(' * ')">*</button>
     </p>
     <p>
-      <button onclick="addButton('0')">0</button>
-      <button onclick="addButton('.')">.</button>
-      <button onclick="equalBtn()">=</button>
-      <button onclick="addButton(' / ')">/</button>
+      <button class="number" onclick="addButton('0')">0</button>
+      <button class="number" onclick="addButton('.')">.</button>
+      <button class="number" onclick="equalBtn()">=</button>
+      <button class="number operator" onclick="addButton(' / ')">/</button>
     </p>
-    <button onclick="clearBtn()">Clear</button>
+    <button class="number clear" onclick="clearBtn()">Clear</button>
 
-    <script>
-      let calculation = localStorage.getItem("calculation") || "";
-
-      displayOperation();
-
-      function addButton(btn) {
-        calculation += btn;
-        displayOperation();
-      }
-
-      function equalBtn() {
-        const result = eval(calculation);
-        calculation = result;
-        localStorage.setItem("calculation", calculation);
-        displayOperation();
-      }
-
-      function clearBtn() {
-        console.log("Clear");
-        calculation = "";
-        displayOperation();
-        localStorage.setItem("calculation", calculation);
-      }
-
-      function displayOperation() {
-        const displayOperationElm = document.querySelector(
-          ".js-display-operation"
-        );
-        displayOperationElm.innerHTML = calculation;
-      }
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
