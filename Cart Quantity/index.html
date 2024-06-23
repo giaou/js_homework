@@ -4,7 +4,7 @@
     <title>Cart Quantity</title>
   </header>
   <body>
-    <button onclick="displayCart()">Show Quantity</button>
+    <button onclick="displayCart();">Show Quantity</button>
     <button onclick="addToCart(1)">Add to Cart</button>
     <button onclick="addToCart(2)">+2</button>
     <button onclick="addToCart(3)">+3</button>
@@ -14,9 +14,12 @@
     <button onclick="removeFromCart(1)">Remove from Cart</button>
     <button onclick="removeFromCart(2)">-2</button>
     <button onclick="removeFromCart(3)">-3</button>
+    <p class="js-show-quantity"></p>
 
     <script>
       let cartQuantity = 0;
+
+      //show cart quantity when the page first load
 
       function addToCart(num) {
         if (cartQuantity + num <= 10) {
@@ -37,7 +40,8 @@
       }
 
       function displayCart() {
-        console.log(`Cart quantity: ${cartQuantity}`);
+        const cartQuantityElm = document.querySelector(".js-show-quantity");
+        cartQuantityElm.innerHTML = `Cart quantity: ${cartQuantity}`;
       }
 
       function resetCart() {
