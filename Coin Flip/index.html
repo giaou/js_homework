@@ -4,33 +4,48 @@
     <title>Coin Flip</title>
   </header>
   <body>
+    <button onclick="playGame('heads')">heads</button>
+    <button onclick="playGame('tails')">tails</button>
     <script>
-      const rand = Math.random();
-      let result = "";
-      const guess = "heads";
+      let score = JSON.parse(localStorage.getItem("headsAndTails")) || {
+        wins: 0,
+        losses: 0,
+      };
 
       function tailsOrHeads() {
+        const rand = Math.random();
         if (rand < 0.5) {
-          result = "heads";
-          console.log(rand + " heads");
+          return "heads";
         } else {
-          result = "tails";
-          console.log(rand + " tails");
+          return "tails";
         }
       }
 
-      function play() {
-        tailsOrHeads();
-        guess === result
-          ? console.log(
-              `result is ${result} and your guess is ${guess}. You win!!`
-            )
-          : console.log(
-              `result is ${result} and your guess is ${guess}. You lost!!`
-            );
+      function playGame(guess) {
+        const computerMove = tailsOrHeads();
+        let result = "";
+        //decide if the player win or lose
+        guess === computerMove ? (result = "win") : (result = "lose");
+        //update score here
+        if (result === "win") {
+          console.log(
+            `Computer picks ${computerMove}, you pick ${guess}! You win! `
+          );
+          score.wins += 1;
+        } else {
+          console.log(
+            `Computer picks ${computerMove}, you pick ${guess}! You lose! `
+          );
+          score.losses += 1;
+        }
+
+        localStorage.setItem("headsAndTails", JSON.stringify(score));
+        displayScore();
       }
 
-      play();
+      function displayScore() {
+        console.log(score);
+      }
     </script>
   </body>
 </html>
