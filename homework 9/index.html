@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Homework 9</title>
+  </header>
+  <body>
+    <button class="js-btn9a">9a</button>
+    <button class="js-btn9b">9b</button>
+
+    <p>
+        <button class="js-heads" onclick="displaySelection('heads')">heads</button>
+        <button class="js-tails" onclick="displaySelection('tails')">tails</button>
+        <p class="js-selection"></p>
+    </p>
+
+    <input class="js-inputBox" onkeydown="pressEnter(event.key)">
+    <button class="js-submit" onclick="displayName()">Submit</button>
+    <p class="js-displayName">[your name will be displayed here]</p>
+
+    <br>
+    <input class="js-inputWords" onkeyup="pressKey()">
+    <p class="js-displayWords"></p>
+
+    <script>
+      //9a
+      const btn9a = document.querySelector(".js-btn9a");
+      console.log(btn9a);
+
+      //9b
+      const btn9b = document.querySelector('.js-btn9b');
+      btn9b.innerHTML='9b done!';
+
+      //9c
+      function displaySelection(choice){
+        const selectionElm = document.querySelector('.js-selection');
+        selectionElm.innerHTML=`You chose: ${choice}`;
+      }
+
+      //9d
+      function displayName(){
+        const inputElm = document.querySelector('.js-inputBox');
+        let name = inputElm.value;
+    
+        const nameElm = document.querySelector('.js-displayName');
+        nameElm.innerHTML=`Welcome back ${name}`;
+
+        inputElm.value = "";
+      }
+
+
+      //9e
+      function pressEnter(key){
+        if(key==='Enter'){
+            displayName();
+        }
+      }
+
+      //9h
+      function pressKey(){
+        const inputElm = document.querySelector('.js-inputWords');
+
+        const nameElm = document.querySelector('.js-displayWords');
+        nameElm.innerHTML=inputElm.value;
+      }
+      
+
+
+
+    </script>
+  </body>
+</html>
