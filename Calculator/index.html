@@ -5,6 +5,7 @@
   </header>
 
   <body>
+    <p class="js-display-operation"></p>
     <p>
       <button onclick="addButton('1')">1</button>
       <button onclick="addButton('2')">2</button>
@@ -34,24 +35,32 @@
     <script>
       let calculation = localStorage.getItem("calculation") || "";
 
-      console.log(calculation);
+      displayOperation();
 
       function addButton(btn) {
         calculation += btn;
-        console.log(calculation);
+        displayOperation();
       }
 
       function equalBtn() {
         const result = eval(calculation);
         calculation = result;
         localStorage.setItem("calculation", calculation);
-        console.log(result);
+        displayOperation();
       }
 
       function clearBtn() {
         console.log("Clear");
         calculation = "";
+        displayOperation();
         localStorage.setItem("calculation", calculation);
+      }
+
+      function displayOperation() {
+        const displayOperationElm = document.querySelector(
+          ".js-display-operation"
+        );
+        displayOperationElm.innerHTML = calculation;
       }
     </script>
   </body>
