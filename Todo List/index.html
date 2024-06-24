@@ -6,10 +6,12 @@
   </header>
   <body>
     <h2>Todo List</h2>
-    <input class="js-name-input name-input" placeholder="Todo name" />
-    <input type="date" class="js-date-input" />
-    <button class="js-add add" onclick="addTask()">Add</button>
-    <p class="js-display-task display-task"></p>
+    <div class="input-grid">
+      <input class="js-name-input name-input" placeholder="Todo name" />
+      <input type="date" class="js-date-input date-input" />
+      <button class="js-add add" onclick="addTask()">Add</button>
+    </div>
+    <div class="js-display-task display-task display-grid"></div>
     <script src="index.js"></script>
   </body>
 </html>
