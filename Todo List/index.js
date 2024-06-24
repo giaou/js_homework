@@ -15,6 +15,20 @@ let todoList = [
 const displayElm = document.querySelector(".js-display-task");
 
 //add task
+function addTask() {
+  const nameElm = document.querySelector(".js-name-input");
+  const name = nameElm.value;
+  nameElm.value = "";
+
+  const dateElm = document.querySelector(".js-date-input");
+  const due = dateElm.value;
+  dateElm.value = null;
+
+  todoList.push({ name, due });
+
+  //render the list
+  displayTasks();
+}
 
 //display task
 function displayTasks() {
@@ -25,7 +39,8 @@ function displayTasks() {
     const taskObj = todoList[i];
     let { name, due } = taskObj;
 
-    const task = `<p>${name} ${due} <button class="js-delete">Delete</button></p>`;
+    const task = `<p>${name} ${due} <button class="js-delete" onclick="deleteTask(${i})">Delete</button></p>`;
+    console.log(i);
 
     htmlText += task;
   }
@@ -33,4 +48,11 @@ function displayTasks() {
   displayElm.innerHTML = htmlText;
 }
 
-displayTasks();
+//delete task
+function deleteTask(index) {
+  todoList.splice(index, 1);
+
+  //render the list
+  displayTasks();
+}
+
