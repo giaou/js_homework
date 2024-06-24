@@ -1,18 +1,9 @@
 //declare the task list
-let todoList = [
-  {
-    name: "Do Laundry",
-    due: "06/23/2024",
-  },
-  {
-    name: "Wash Dishes",
-    due: "06/27/2024",
-  },
-];
+let todoList = JSON.parse(localStorage.getItem("todolist")) || [];
+
+displayTasks();
 
 //get the value of the task name
-
-const displayElm = document.querySelector(".js-display-task");
 
 //add task
 function addTask() {
@@ -32,6 +23,7 @@ function addTask() {
 
 //display task
 function displayTasks() {
+  const displayElm = document.querySelector(".js-display-task");
   let htmlText = "";
 
   //add the todo list to the html text
@@ -39,13 +31,21 @@ function displayTasks() {
     const taskObj = todoList[i];
     let { name, due } = taskObj;
 
-    const task = `<p>${name} ${due} <button class="js-delete" onclick="deleteTask(${i})">Delete</button></p>`;
+    const task = `
+    
+<div>${name}</div> 
+<div>${due}</div>
+<button class="js-delete delete" onclick="deleteTask(${i})">Delete</button>`;
+
     console.log(i);
 
     htmlText += task;
   }
 
   displayElm.innerHTML = htmlText;
+
+  //save updated todoList into localstorage
+  localStorage.setItem("todolist", JSON.stringify(todoList));
 }
 
 //delete task
@@ -55,4 +55,3 @@ function deleteTask(index) {
   //render the list
   displayTasks();
 }
-
