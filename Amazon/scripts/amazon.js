@@ -19,7 +19,9 @@ products.forEach((product) => {
                 class="product-rating-stars"
                 src="images/ratings/rating-${product.rating.stars * 10}.png"
             />
-            <div class="product-rating-count link-primary">87</div>
+            <div class="product-rating-count link-primary">${
+              product.rating.count
+            }</div>
         </div>
 
         <div class="product-price">$${(product.priceCents / 100).toFixed(
@@ -43,7 +45,7 @@ products.forEach((product) => {
 
         <div class="product-spacer"></div>
 
-        <div class="added-to-cart">
+        <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/icons/checkmark.png" />
             Added
         </div>
@@ -56,9 +58,10 @@ products.forEach((product) => {
 
 document.querySelector(".js-products-grid").innerHTML = prodcutsHtml;
 
+let timeoutId;
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
-    const productId = button.dataset.productId;
+    const { productId } = button.dataset;
     console.log(productId);
 
     let matchingItem;
@@ -69,17 +72,17 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
       }
     });
 
-    const itemQuantity = document.querySelector(
+    let quantity = document.querySelector(
       `.js-quantity-selector-${productId}`
     ).value;
-    console.log(itemQuantity);
+    quantity = Number(quantity);
 
     if (matchingItem) {
-      matchingItem.quantity += 1;
+      matchingItem.quantity += quantity;
     } else {
       cart.push({
-        productId: productId,
-        quantity: Number(itemQuantity),
+        productId,
+        quantity,
       });
     }
 
@@ -90,6 +93,24 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
       cartQuantity += item.quantity;
     });
 
+    console.log(cartQuantity);
+
     document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+
+    console.log(cart);
+
+    const checkMarkElm = document.querySelector(
+      `.js-added-to-cart-${productId}`
+    );
+    console.log(checkMarkElm);
+    checkMarkElm.classList.add("visible");
+
+    //make the checkmark disappeared
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+      checkMarkElm.classList.remove("visible");
+    }, 2000);
   });
 });
